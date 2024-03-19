@@ -1,7 +1,7 @@
 package firstyearportfolio;
 
 public class arrayTest {
-    public static void main(String[] args) {
+    public static void exe() {
         Numbers num1 = new Numbers();
         double suma, average, variance, deviation;
         double[] array;

@@ -19,6 +19,11 @@ public class App {
                 switch (value) {
                     case 1:
                         MathFormula.exe();
+                    case 2:
+                        arrayTest.exe();
+                    case 3:
+                        AveragedArrays.exe();
+                        case 4:
                 }
             }
         }

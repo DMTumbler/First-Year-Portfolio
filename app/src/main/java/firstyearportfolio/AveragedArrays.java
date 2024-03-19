@@ -26,7 +26,7 @@ package firstyearportfolio;
 import java.util.*;
 
 public class AveragedArrays {
-    public static void main(String[] args) {
+    public static void exe() {
         Scanner key = new Scanner(System.in);
         int average;
         int[][] arreglo;
