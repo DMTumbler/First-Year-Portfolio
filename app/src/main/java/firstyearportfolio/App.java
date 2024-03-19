@@ -13,17 +13,34 @@ public class App {
             System.out.println("Developed in the first year of my college CS program.");
             System.out.println("A combination of options will be visible to try out those");
             System.out.println("Different classes.\n");
-            System.out.println("Please select 1 through 4 to see the different option. Press 5 for More.");
+            System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
+            System.out.println("1: A monolithic class that contains an assortment of programs based on math exercises.");
+            System.out.println("2: Generates a random array and finds the average variance and deviation.");
+            System.out.println("3: Averages a multidimensional array.");
             if (key.hasNextLine()) {
                 value = Integer.valueOf(key.nextLine());
                 switch (value) {
                     case 1:
                         MathFormula.exe();
+                        break;
                     case 2:
-                        arrayTest.exe();
+                        RandomArray.exe();
+                        break;
                     case 3:
                         AveragedArrays.exe();
-                        case 4:
+                        break;
+                    case 4:
+                        System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
+                        value = Integer.valueOf(key.nextLine());
+                        switch (value) {
+                            case 1:
+                                System.out.println("This is a placeholder. More apps are to be added");
+                                break;
+
+                            default:
+                                System.out.println("This is a placeholder. More apps are to be added");
+                                break;
+                        }
                 }
             }
         }

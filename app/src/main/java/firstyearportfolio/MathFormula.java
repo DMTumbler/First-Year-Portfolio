@@ -132,8 +132,8 @@ public class MathFormula {
   public static double chooseMath(Scanner key) {
     double value = 0;
     int choice;
-    System.out.println("Please input a value from 1 trough 3 for your formular choice.\n");
-    System.out.println("1: Diplay Multiplication table.");
+    System.out.println("Please input a value from 1 trough 3 for your exercise choice.\n");
+    System.out.println("1: Display Multiplication table.");
     System.out.println("2: Sum all negative pair numbers.");
     System.out.println("3: Calculate the average of a set of values.");
     choice = key.nextInt();
@@ -160,20 +160,20 @@ public class MathFormula {
 
   public static int evensAndOddsInArray(int[] numArray) {
     int acumulador = 0, desacumulador = 0;
-    System.out.println("Aquí los números pares listados de 1 al " + numArray.length + ": ");
+    System.out.println("Here numbers pair numbers are listed from 1 to " + numArray.length + ": ");
     for (int i = 0; i < numArray.length; i++) {
       if (numArray[i] % 2 != 0) {
-        System.out.println("El indice " + i + " es impar y refleja el numero " + numArray[i]);
+        System.out.println("The index " + i + " is odd and reflects the number " + numArray[i]);
         desacumulador += 1;
       }
     }
     for (int i = 0; i < numArray.length; i++) {
       if (numArray[i] % 2 == 0) {
-        System.out.println("El indice " + i + " es par y refleja el numero " + numArray[i]);
+        System.out.println("The index " + i + " is a pair and reflects the number " + numArray[i]);
         acumulador += 1;
       }
     }
-    System.out.println("Hay " + acumulador + " números pares y " + desacumulador + " numeros impares.");
+    System.out.println("There is " + acumulador + " pair numbers and " + desacumulador + " odd numbers.");
     return acumulador;
   }
 }
