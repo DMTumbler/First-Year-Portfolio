@@ -1,7 +1,7 @@
 package firstyearportfolio;
 
 public class RandomArray {
-    public static void exe() {
+    public static void show() {
         Numbers num1 = new Numbers();
         double suma, average, variance, deviation;
         double[] array;

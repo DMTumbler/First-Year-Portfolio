@@ -1,6 +1,5 @@
 package firstyearportfolio;
 
-
 /* Programador: Christian Sanchez Martinez   
  * 
  * Programa:
@@ -26,7 +25,7 @@ package firstyearportfolio;
 import java.util.*;
 
 public class AveragedArrays {
-    public static void exe() {
+    public static void show() {
         Scanner key = new Scanner(System.in);
         int average;
         int[][] arreglo;
@@ -46,7 +45,6 @@ public class AveragedArrays {
         System.out.println("El promedio de su segunda columna es " + columnArray[1]);
         System.out.println("El promedio de su tercera columna es " + columnArray[2]);
     }
-
 
     // Método para construir el arreglo pidiéndole los dato al usuario
     static public int[][] buildArray(Scanner key) {

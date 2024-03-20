@@ -3,67 +3,68 @@ package firstyearportfolio;
 import java.util.Scanner;
 
 public class MathFormula {
-  public static void exe() {
-    int[] array = new int[] { 1, 2, 3, 6, 8, 10, 12, 14 };
+  public static void show() {
     Scanner key = new Scanner(System.in);
     chooseMath(key);
-    evensAndOddsInArray(array);
-    double[] arr = userFillArray(key);
-
-    double average = calcArrayAverage(arr);
-    double varianza = calcularVarianza(arr, average);
-    double desviacion = calcularDesviacion(varianza);
-
-    for (int i = 0; i < arr.length; i++) {
-      System.out.println("Su valor numero " + (i + 1) + " es " + arr[i]);
-    }
-
-    System.out.println("\n El  promedio es = " + average);
-    System.out.println("la varianza es = " + varianza);
-    System.out.println("la desviación estándar es = " + desviacion);
+    double[] arr = fillArrayUser(key);
+    //
+    // double average = calcArrayAverage(arr);
+    // double variance = calculateVariance(arr, average);
+    // double deviation = calculateDesviacion(variance);
+    //
+    // for (int i = 0; i < arr.length; i++) {
+    // System.out.println("Su valor numero " + (i + 1) + " es " + arr[i]);
+    // }
+    //
+    // System.out.println("\n The average is = " + average);
+    // System.out.println("The variance is = " + variance);
+    // System.out.println("The standard deviation is = " + deviation);
   }
 
-  public static double[] userFillArray(Scanner key) {
+  // Function to fill array
+  public static double[] fillArrayUser(Scanner key) {
     System.out.println("How many values will you be using? Please enter the amount.");
     int size = 0;
+    boolean validInput = false;
     try {
-      while (true)
+      do {
         if (key.hasNextInt()) {
-          size = key.nextInt();
+          size = Integer.valueOf(key.nextLine());
           if (size < 15) {
-            break;
+            validInput = true;
           } else if (size >= 15) {
-            System.out.println(
-                "That value is too large. Please input a smaller value to remain within scope.");
+            System.out.println("That value is too large. Please input a smaller value to remain within scope.");
             System.out.println("How many values will you be using? Please enter the amount.");
           }
         } else {
           System.out.println("That is not a number. Please enter a number.");
           key.nextLine();
         }
+      } while (!validInput);
+
     } catch (Exception e) {
       System.out.println("There was an error. Restart the program.");
     }
-    double[] grades = new double[size];
+
+    double[] array = new double[size];
 
     System.out.println("We will be requesting " + size + " values.");
-    for (int i = 0; i < grades.length; i++) {
+    for (int i = 0; i < array.length; i++) {
       System.out.println("Please enter a value: ");
       try {
         while (true)
           if (key.hasNextDouble()) {
-            grades[i] = key.nextDouble();
+            array[i] = Double.valueOf(key.nextLine());
             break;
           } else {
             System.out.println("That is not a number. Please enter a number.");
-            key.nextLine();
             key.nextLine();
           }
       } catch (Exception e) {
         System.out.println("There was an error. Restart the program.");
       }
     }
-    return grades;
+    return array;
   }
 
   public static double calcArrayAverage(double[] arr) {
@@ -76,24 +77,24 @@ public class MathFormula {
     return average;
   }
 
-  public static double calcularVarianza(double[] arr, double av) {
-    double varianza = 0;
+  public static double calculateVariance(double[] arr, double av) {
+    double variance = 0;
     for (int i = 0; i < arr.length; i++) {
-      varianza += Math.pow(arr[i] - av, 2);
+      variance += Math.pow(arr[i] - av, 2);
     }
-    return varianza;
+    return variance;
   }
 
-  public static double calcularDesviacion(double var) { // Calcula desviación estándar
-    double desviacion = Math.sqrt(var);
-    return desviacion;
+  public static double calculateDesviacion(double var) { // Calcula desviación estándar
+    double deviation = Math.sqrt(var);
+    return deviation;
   }
 
   public static void dispalyMultTable() {
-    int fila, multiplicador;
-    for (fila = 1; fila <= 12; fila++) {
-      for (multiplicador = 1; multiplicador <= 12; multiplicador++) {
-        System.out.printf("%4d", multiplicador * fila);
+    int row, multiplier;
+    for (row = 1; row <= 12; row++) {
+      for (multiplier = 1; multiplier <= 12; multiplier++) {
+        System.out.printf("%4d", multiplier * row);
       }
       System.out.println();
     }
@@ -112,21 +113,22 @@ public class MathFormula {
 
   }
 
-  public static double sumNegativePairs(double amount, Scanner key) {
-    int suma = 0;
+  public static double sumNegativePairs(Scanner key) {
+    int sum = 0;
     int i = 0;
-
+    System.out.println("Please provide the amount of values you will calculate: \n");
+    int amount = Integer.valueOf(key.nextLine());
     while (i < amount) {
       System.out.print("Ingrese el número " + (i + 1) + ": ");
-      int numero = key.nextInt(); // Entrada del usuario
+      int number = key.nextInt(); // Entrada del usuario
       i++;
 
-      if (numero < 0 && numero % 2 == 0) {
-        suma += numero;
+      if (number < 0 && number % 2 == 0) {
+        sum += number;
       }
     }
-    System.out.println("La suma de los pares negativos es: " + suma);
-    return suma;
+    System.out.println("La suma de los pares negativos es: " + sum);
+    return sum;
   }
 
   public static double chooseMath(Scanner key) {
@@ -134,23 +136,24 @@ public class MathFormula {
     int choice;
     System.out.println("Please input a value from 1 trough 3 for your exercise choice.\n");
     System.out.println("1: Display Multiplication table.");
-    System.out.println("2: Sum all negative pair numbers.");
+    System.out.println("2: Sum all negative even numbers.");
     System.out.println("3: Calculate the average of a set of values.");
-    choice = key.nextInt();
+    System.out.println("4: We will find the even and odd number in an array.");
+    choice = Integer.valueOf(key.nextLine());
     switch (choice) {
       case 1:
         dispalyMultTable();
         break;
       case 2:
-        System.out.println("Please provide the amount of values you will calculate: \n");
-        int n = key.nextInt();
-        value = sumNegativePairs(n, key);
+        value = sumNegativePairs(key);
         break;
       case 3:
-        double[] arr = userFillArray(key);
+        double[] arr = fillArrayUser(key);
         double average = calcArrayAverage(arr);
         System.out.println("Your average is " + average);
         break;
+      case 4:
+        findEvenOddsInArray(key);
       default:
         System.out.println("\nThat is not an acceptable value.");
         chooseMath(key);
@@ -158,22 +161,31 @@ public class MathFormula {
     return value;
   }
 
-  public static int evensAndOddsInArray(int[] numArray) {
-    int acumulador = 0, desacumulador = 0;
-    System.out.println("Here numbers pair numbers are listed from 1 to " + numArray.length + ": ");
-    for (int i = 0; i < numArray.length; i++) {
-      if (numArray[i] % 2 != 0) {
-        System.out.println("The index " + i + " is odd and reflects the number " + numArray[i]);
-        desacumulador += 1;
+  public static int findEvenOddsInArray(Scanner key) {
+    int[] array = new int[8];
+    int input = 0;
+
+    input = Integer.valueOf(key.nextLine());
+    System.out.println("First lets fill our array.");
+    for (int i = 0; i < array.length; i++) {
+      input = Integer.valueOf(key.nextLine());
+      array[i] = input;
+    }
+    int acum = 0, deacum = 0;
+    System.out.println("Here even numbers are listed from 1 to " + array.length + ": ");
+    for (int i = 0; i < array.length; i++) {
+      if (array[i] % 2 != 0) {
+        System.out.println("The index " + i + " is odd and reflects the number " + array[i]);
+        deacum += 1;
       }
     }
-    for (int i = 0; i < numArray.length; i++) {
-      if (numArray[i] % 2 == 0) {
-        System.out.println("The index " + i + " is a pair and reflects the number " + numArray[i]);
-        acumulador += 1;
+    for (int i = 0; i < array.length; i++) {
+      if (array[i] % 2 == 0) {
+        System.out.println("The index " + i + " is even and reflects the number " + array[i]);
+        acum += 1;
       }
     }
-    System.out.println("There is " + acumulador + " pair numbers and " + desacumulador + " odd numbers.");
-    return acumulador;
+    System.out.println("There is " + acum + " even numbers and " + deacum + " odd numbers.");
+    return acum;
   }
 }

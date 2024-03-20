@@ -20,13 +20,13 @@ public class App {
                 value = Integer.valueOf(key.nextLine());
                 switch (value) {
                     case 1:
-                        MathFormula.exe();
+                        MathFormula.show();
                         break;
                     case 2:
-                        RandomArray.exe();
+                        RandomArray.show();
                         break;
                     case 3:
-                        AveragedArrays.exe();
+                        AveragedArrays.show();
                         break;
                     case 4:
                         System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
