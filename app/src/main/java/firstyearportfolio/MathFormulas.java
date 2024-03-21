@@ -2,23 +2,28 @@ package firstyearportfolio;
 
 import java.util.Scanner;
 
-public class MathFormula {
+public class MathFormulas {
   public static void show() {
     Scanner key = new Scanner(System.in);
     chooseMath(key);
-    double[] arr = fillArrayUser(key);
-    //
-    // double average = calcArrayAverage(arr);
-    // double variance = calculateVariance(arr, average);
-    // double deviation = calculateDesviacion(variance);
-    //
-    // for (int i = 0; i < arr.length; i++) {
-    // System.out.println("Su valor numero " + (i + 1) + " es " + arr[i]);
-    // }
-    //
-    // System.out.println("\n The average is = " + average);
-    // System.out.println("The variance is = " + variance);
-    // System.out.println("The standard deviation is = " + deviation);
+  }
+
+  public static double[] calcArrayData(Scanner key) {
+    double[] array;
+    double average = 0, variance = 0, deviation = 0;
+    array = fillArrayUser(key);
+    average = calcArrayAverage(array);
+    variance = calculateVariance(array, average);
+    deviation = calculateDeviation(variance);
+
+    for (int i = 0; i < array.length; i++) {
+      System.out.println("Su valor numero " + (i + 1) + " es " + array[i]);
+    }
+
+    System.out.println("\n The average is = " + average);
+    System.out.println("The variance is = " + variance);
+    System.out.println("The standard deviation is = " + deviation);
+    return array;
   }
 
   // Function to fill array
@@ -85,7 +90,7 @@ public class MathFormula {
     return variance;
   }
 
-  public static double calculateDesviacion(double var) { // Calcula desviación estándar
+  public static double calculateDeviation(double var) { // Calcula desviación estándar
     double deviation = Math.sqrt(var);
     return deviation;
   }
@@ -139,6 +144,7 @@ public class MathFormula {
     System.out.println("2: Sum all negative even numbers.");
     System.out.println("3: Calculate the average of a set of values.");
     System.out.println("4: We will find the even and odd number in an array.");
+    System.out.println("5: We will provideo the average, variance and deviation of an array.");
     choice = Integer.valueOf(key.nextLine());
     switch (choice) {
       case 1:
@@ -154,6 +160,8 @@ public class MathFormula {
         break;
       case 4:
         findEvenOddsInArray(key);
+      case 5:
+        calcArrayData(key);
       default:
         System.out.println("\nThat is not an acceptable value.");
         chooseMath(key);

@@ -13,24 +13,24 @@ public class App {
             System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
             System.out
                     .println("1: A monolithic class that contains an assortment of programs based on math exercises.");
-            System.out.println("2: Generates a random array and finds the average variance and deviation.");
+            System.out.println("2: Generates a random array and finds the average, variance and deviation.");
             System.out.println("3: Averages a multidimensional array.");
             System.out.println("4: More.");
             if (key.hasNextLine()) {
                 value = Integer.valueOf(key.nextLine());
                 switch (value) {
                     case 1:
-                        MathFormula.show();
+                        MathFormulas.show();
                         break;
                     case 2:
                         RandomArray.show();
                         break;
                     case 3:
-                        AveragedArrays.show();
+                        AvgMultArray.show();
                         break;
                     case 4:
                         System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
-                        System.out.println("1: To be added.");
+                        System.out.println("1: .");
                         System.out.println("2: To be added.");
                         System.out.println("3: To be added.");
                         System.out.println("4: More.");
