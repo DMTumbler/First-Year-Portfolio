@@ -66,14 +66,11 @@ public class AvgMultArray {
 
     // Método para calcular los promedios de las filas del arreglo
     static public int[] findRowAverage(int[][] array) {
-        int i = 0;
-        int j = 0;
-        int total;
+        int total = 0;
         int[] rowAverage;
         rowAverage = new int[3];
-        for (i = 0; i < 3; i++) {
-            total = 0;
-            for (j = 0; j < 5; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 5; j++) {
                 total += array[i][j];
             }
             rowAverage[i] = total / 5;
