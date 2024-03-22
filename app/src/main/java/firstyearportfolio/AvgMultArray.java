@@ -1,26 +1,7 @@
 package firstyearportfolio;
 
-/* Programador: Christian Sanchez Martinez   
- * 
- * Programa:
- * Toma un arreglo de datos del usuario obtiene los promedios basado en fila en columna, o el promedio en conjunto
- * del arreglo completo.
- * 
- * Algoritmo:
- * 1. Comenzar
- * 2. Obtener arreglo del usuario
- * 3. Calcular promedio de filas
- * 4. Calcular promedio de columnas
- * 5. Calcular promedio de arreglo completo
- * 6. Demostrar resultados
- * 7. Finalizar
- * 
- * Variables:
- * average - Representa el promedio del arreglo
- * arreglo - Representa el arreglo rellenado por el usuario
- * rowArray - El arreglo rellenado por las filas de arreglo en el método findRowAverage()
- * columnArray - El arreglo rellenado por las columnas en el método findColumnAverage()
- * 
+/* Program: Asks user to generate the values of a multidimensional array. It takes said values and finds the average of 
+ * the rows, columns and the whole array. It's main function is to demonstrate how multidimensional arrays function.
  */
 import java.util.*;
 
@@ -28,25 +9,20 @@ public class AvgMultArray {
     public static void show() {
         Scanner key = new Scanner(System.in);
         int average;
-        int[][] array;
-        int[] rowArray, columnArray;
-        array = new int[3][5];
-        rowArray = new int[3];
-        columnArray = new int[5];
+        int[][] array = new int[3][5];
+        int[] rowArray = new int[3];
+        int[] columnArray = new int[5];
         array = buildTwoDimArray(key);
         rowArray = findRowAverage(array);
         columnArray = findColumnAverage(array);
         average = findAverage(array);
-        System.out.println("El promedio de su arreglo es " + average);
+        System.out.println("The average of the whole array is " + average);
         for (int i = 0; i < rowArray.length; i++) {
-            System.out.println("The average of your first row is " + rowArray[0]);
-            System.out.println("The average of your second row is " + rowArray[1]);
-            System.out.println("The average of your third row is " + rowArray[2]);
+            System.out.println("The average of row " + i + " is " + rowArray[i]);
         }
-
-        System.out.println("The average of your first column is " + columnArray[0]);
-        System.out.println("The average of your second column is " + columnArray[1]);
-        System.out.println("The average of your third column is " + columnArray[2]);
+        for (int i = 0; i < columnArray.length; i++) {
+            System.out.println("The average of column " + i + " is " + columnArray[i]);
+        }
     }
 
     // Método para construir el arreglo pidiéndole los dato al usuario
@@ -54,9 +30,9 @@ public class AvgMultArray {
         int userNums = 0;
         int[][] array;
         array = new int[3][5];
-        System.out.println("Please provide 15 values to fill your table ");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
+                System.out.println("Please enter the value for row " + i + " column " + j);
                 userNums = Integer.valueOf(key.nextLine());
                 array[i][j] = userNums;
             }
@@ -74,6 +50,7 @@ public class AvgMultArray {
                 total += array[i][j];
             }
             rowAverage[i] = total / 5;
+            total = 0;
         }
         return rowAverage;
     }
@@ -82,15 +59,15 @@ public class AvgMultArray {
     static public int[] findColumnAverage(int[][] array) {
         int i = 0;
         int j = 0;
-        int total;
+        int total = 0;
         int[] columnAverage;
         columnAverage = new int[5];
         for (i = 0; i < 5; i++) {
-            total = 0;
             for (j = 0; j < 3; j++) {
                 total += array[j][i];
             }
             columnAverage[i] = total / 3;
+            total = 0;
         }
         return columnAverage;
     }
@@ -100,8 +77,8 @@ public class AvgMultArray {
         int i = 0;
         int j = 0;
         int sum = 0;
-        for (i = 0; i < 2; i++) {
-            for (j = 0; j < 4; j++) {
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 5; j++) {
                 sum = +array[i][j];
             }
         }
