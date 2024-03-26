@@ -1,0 +1,217 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.App",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "ArchivosEstudiantes",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.ArchivosEstudiantes",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "BuscandoOcho",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.BuscandoOcho",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Circle",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Circle",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Cookies",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Cookies",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "DatosTrianjagulo",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.DatosTrianjagulo",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Fibonacci",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Fibonacci",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "FinalLab",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.FinalLab",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "FirstArchives",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.FirstArchives",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Ideone",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Ideone",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "IterativeFactorial",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.IterativeFactorial",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "MeasureTime",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.MeasureTime",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Multidimensional",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Multidimensional",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Person",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Person",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "PriceCompare",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.PriceCompare",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "RandomBubbleSort",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.RandomBubbleSort",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Rectangle",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Rectangle",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Recursion",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Recursion",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Student",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Student",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Transactions",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.Transactions",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "WriteToFile",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.WriteToFile",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "blockbusterClient",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.blockbusterClient",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "cajaRegistradora3",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.cajaRegistradora3",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "costPerPerson",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.costPerPerson",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "empleados",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.empleados",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "laboratorio",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.laboratorio",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "leerNumero",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.leerNumero",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "namesList",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.namesList",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "ozToCups",
+            "request": "launch",
+            "mainClass": "firstyearportfolio.ozToCups",
+            "projectName": "app"
+        }
+    ]
+}
