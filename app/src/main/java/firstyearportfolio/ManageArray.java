@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class ManageArray {
   public static void demonstrate() {
-    Scanner key = new Scanner(System.in);
     int size = requestValueScanner();
     double[] array = generateRandomArray(size);
     double sum = sumArrayValues(array);

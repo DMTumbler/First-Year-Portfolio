@@ -3,7 +3,7 @@ package firstyearportfolio;
 import java.util.*;
 
 public class Recursion {
-  public static void main(String[] args) {
+  public static void demonstrate() {
     double factResult1, factResult2, multResult, sumResult, valor1, valor2;
     try (Scanner key = new Scanner(System.in)) {
       System.out.println(

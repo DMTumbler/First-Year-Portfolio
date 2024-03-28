@@ -58,7 +58,6 @@ public class App {
     App myApp = new App();
     myApp.getGreeting();
     myApp.selectExcercise();
-
   }
 
 }
