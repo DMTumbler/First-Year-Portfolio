@@ -6,7 +6,7 @@ package firstyearportfolio;
 import java.util.*;
 
 public class AvgMultArray {
-    public static void show() {
+    public static void demonstrate() {
         Scanner key = new Scanner(System.in);
         int average;
         int[][] array = new int[3][5];

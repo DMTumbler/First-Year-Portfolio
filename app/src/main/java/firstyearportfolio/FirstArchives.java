@@ -1,28 +1,4 @@
 package firstyearportfolio;
-
-
-/* Programado: Christian Sanchez Martinez
- * 
- * Programa:
- * Genera 20 datos que son guardados en un archivo de texto que luego convierte en los valores
- * de un arreglo. Finalmente los imprime en pantalla para observar por el usuario.
- * 
- * Variables:
- * generateNumbers()
- * cantidad - representa el numero de valores a generar
- * result - la variable utilizada para llenar el archivo con la clase PrintWriter
- * outputNumber - La variable que se convierte en el numero aleatorio a traves de la formula. Se usa con
- * result.println() para llenar el archivo.
- * 
- * sendToArray()
- * data - variable a la que se le asigna el archivo a traves de scanner
- * inputNumber - variable que recoge los valores del archivo en un loop para asignarlos al arreglo
- * generatedNumbers - representa el arreglo a ser llenado por el método
- * i - 
- * 
- * generateNumbers() - El método que genera los 20 números aleatorios y los graba en el archivo
- * sendToArray() - Método que toma los valores del archivo y los utiliza para llenar el arreglo
- */
 import java.util.*;
 import java.io.*;
 

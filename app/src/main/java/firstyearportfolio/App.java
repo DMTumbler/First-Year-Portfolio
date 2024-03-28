@@ -25,12 +25,12 @@ public class App {
         value = Integer.valueOf(key.nextLine());
         switch (value) {
           case 1:
-            MathFormulas.show();
+            MathFormulas.demonstrate();
             break;
           case 2:
+            ManageArray.demonstrate();
             break;
           case 3:
-            AvgMultArray.show();
             break;
           case 4:
             System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");

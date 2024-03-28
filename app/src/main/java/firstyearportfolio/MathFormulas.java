@@ -3,7 +3,7 @@ package firstyearportfolio;
 import java.util.Scanner;
 
 public class MathFormulas {
-  public static void show() {
+  public static void demonstrate() {
     Scanner key = new Scanner(System.in);
     chooseMath(key);
   }
