@@ -3,7 +3,7 @@ package firstyearportfolio;
 import java.util.*;
 
 public class Fibonacci {
-  public static void demonstrate() {
+  public static int demonstrate() {
     int count;
     Scanner key = new Scanner(System.in);
     count = generarCantidad(key);
@@ -11,6 +11,7 @@ public class Fibonacci {
     for (int i = 0; i < count; i++) {
       System.out.print(Fib(i) + " ");
     }
+    return count;
   }
 
   public static int generarCantidad(Scanner key) {

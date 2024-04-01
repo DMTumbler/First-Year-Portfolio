@@ -21,8 +21,8 @@ public class App {
   public int selectExcercise() {
     int value = 0;
     try (Scanner key = new Scanner(System.in)) {
-      if (key.hasNextLine()) {
-        value = Integer.valueOf(key.nextLine());
+      value = Integer.valueOf(key.nextLine());
+      if (key.hasNextInt()) {
         switch (value) {
           case 1:
             MathFormulas.demonstrate();
@@ -31,6 +31,7 @@ public class App {
             ManageArray.demonstrate();
             break;
           case 3:
+            Fibonacci.demonstrate();
             break;
           case 4:
             System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
@@ -50,6 +51,8 @@ public class App {
             }
         }
       }
+    } catch (Exception e) {
+      // TODO: handle exception
     }
     return value;
   }
