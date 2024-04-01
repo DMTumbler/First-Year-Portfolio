@@ -29,7 +29,7 @@ public class ozToCups {
     System.out.println("this is added to test the build");
   }
 
-  public static void main(String[] args) {
+  public static void demonstrate() {
     double mesure;
     mesure = provideOz();
     partyCalc(mesure);

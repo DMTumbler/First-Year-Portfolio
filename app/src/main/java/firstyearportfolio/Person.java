@@ -3,15 +3,19 @@ package firstyearportfolio;
 import java.util.*;
 
 public class Person {
-  private int age;
-  private String id, name, lastName;
+  private int age, id;
+  private String name, lastName;
 
-  public Person(String id) {
-    this.id = id;
+  public Person(String name) {
+    this.name = name;
   }
 
   public void setAge(int age) {
     this.age = age;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public void setName(String name) {
@@ -26,7 +30,7 @@ public class Person {
     return age;
   }
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 
@@ -38,13 +42,19 @@ public class Person {
     return lastName;
   }
 
+  public String toString() {
+    return this.name + this.lastName + this.id;
+  }
+
   public static void main(String[] args) {
-    createPerson(clientSetAmount());
+    ArrayList<Person> list;
+    list = createPersonsList(setAmountScanner());
+    showPersonList(list);
     // boolean age = determineIfUnderage();
     // ageInsult(age);
   }
 
-  public static int clientSetAmount() {
+  public static int setAmountScanner() {
     int amount = 0;
     try (Scanner key = new Scanner(System.in)) {
       System.out.println("Please provide the amount of people you will add to system.");
@@ -55,10 +65,10 @@ public class Person {
   }
 
   // Creates amount of people base on an amount entered by the user with scanner
-  public static Person[] createPerson(int amount) {
+  public static Person[] createPersons(int amount) {
     Person[] person = new Person[amount];
     try (Scanner key = new Scanner(System.in)) {
-      for (int i = 0; i < amount; i++) {
+      for (int i = 0; i < person.length; i++) {
         person[i] = new Person(String.valueOf(i));
         System.out.println("ID set to: " + i);
         System.out.println("Set age: ");
@@ -84,6 +94,50 @@ public class Person {
       }
 
       return person;
+    }
+  }
+
+  public static ArrayList<Person> createPersonsList(int amount) {
+    String name = "";
+    int i = 0;
+    boolean validInput = false;
+    ArrayList<Person> personList = new ArrayList<>();
+    try (Scanner key = new Scanner(System.in)) {
+      System.out.println("Please input a name: ");
+      System.out.println("Input a blank line to exit: ");
+      name = key.nextLine();
+      while (true) {
+        if (name.isEmpty()) {
+          break;
+        }
+        i++;
+        Person person = new Person(name);
+        System.out.println("Set last name: ");
+        person.setlastName(key.nextLine());
+        System.out.println("Set age: ");
+        do {
+          if (key.hasNextInt()) {
+            person.setAge(Integer.valueOf(key.nextLine()));
+            validInput = true;
+          } else {
+            System.out.println("Make sure to enter an integer, otherwise you will get an error.");
+          }
+        } while (!validInput);
+        System.out.println("Set Id");
+        person.setId(i);
+        personList.add(person);
+      }
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+
+    return personList;
+
+  }
+
+  public static void showPersonList(ArrayList<Person> list) {
+    for (Person person : list) {
+      System.out.println(person);
     }
   }
 

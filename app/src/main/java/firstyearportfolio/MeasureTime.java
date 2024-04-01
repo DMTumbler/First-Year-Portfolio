@@ -3,7 +3,7 @@ package firstyearportfolio;
 import java.util.Scanner;
 
 public class MeasureTime {
-  public static void main(String[] args) {
+  public static void demonstrate() {
     int start = 1, end = 15095, result = 0;
     boolean inputValue = false;
     try (Scanner key = new Scanner(System.in)) {

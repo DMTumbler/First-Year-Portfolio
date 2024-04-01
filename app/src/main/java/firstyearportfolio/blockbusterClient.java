@@ -55,7 +55,7 @@ public class blockbusterClient {
     this.movies = movies;
   }
 
-  public static void main(String[] args) {
+  public static void demonstrate() {
 
     Scanner key = new Scanner(System.in);
     double costo;
