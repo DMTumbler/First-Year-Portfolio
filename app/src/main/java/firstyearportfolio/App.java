@@ -36,7 +36,7 @@ public class App {
               break;
             case 4:
               System.out.println("Please select 1 through 3 to see the different option. Press 4 for More.");
-              System.out.println("1: To be added.");
+              System.out.println("1: Adds people to an ArrayList.");
               System.out.println("2: To be added.");
               System.out.println("3: To be added.");
               System.out.println("4: More.");
@@ -44,6 +44,7 @@ public class App {
               switch (value) {
                 case 1:
                   System.out.println("This is a placeholder. More apps are to be added.");
+                  Person.demonstrate();
                   break;
 
                 default:
