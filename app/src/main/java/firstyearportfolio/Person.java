@@ -46,15 +46,23 @@ public class Person {
     return this.name + " " + this.lastName + " age: " + this.age + ", ID: " + this.id;
   }
 
-  public static void demonstrate() {
+  public static void demoPersonList() {
     ArrayList<Person> list = new ArrayList<>();
-    Person[] array;
     boolean old = false;
     System.out.println("First we will create an array of people");
-    array = createPersonsArray(setAmountScanner());
     list = createPersonsList();
     showPersonList(list);
-    // showPersonArray(array);
+    old = determineIfListUnderage(list);
+    ageInsult(old);
+  }
+
+  public static void demoPersonArray() {
+    Person[] array;
+    // boolean old = false;
+    System.out.println("First we will create an array of people");
+    int amount = setAmountScanner();
+    array = createPersonsArray(amount);
+    showPersonArray(array);
     // Person person = list.get(0);
     // int age = person.getAge();
     // determineIfUnderage(age);
@@ -73,35 +81,40 @@ public class Person {
 
   // Creates amount of people base on an amount entered by the user with scanner
   public static Person[] createPersonsArray(int amount) {
-    Person[] person = new Person[amount];
+    String answer = "";
+    Person[] personArray = new Person[amount];
     try (Scanner key = new Scanner(System.in)) {
-      for (int i = 0; i < person.length; i++) {
-        person[i] = new Person(String.valueOf(i));
-        System.out.println("ID set to: " + i);
+      for (int i = 0; i < personArray.length; i++) {
+        personArray[i] = new Person(String.valueOf(i));
+        System.out.println("ID set to: " + personArray[i].getId());
         System.out.println("Set age: ");
-        person[i].setAge(Integer.valueOf(key.nextLine()));
+        personArray[i].setAge(Integer.valueOf(key.nextLine()));
+        System.out.println("Age set to " + personArray[i].getAge());
         System.out.println("Set Last Name: ");
-        person[i].setlastName((key.nextLine()));
+        personArray[i].setlastName((key.nextLine()));
         System.out.println("Set Name: ");
-        person[i].setName((key.nextLine()));
-        for (i = 0; i < amount; i++) {
-          System.out.println("Age:" + person[i].getAge() + " ID:" + person[i].getId() + " Name:" + person[i].getName()
-              + " Last Name:" + person[i].getlastName());
-          if (person[i].getAge() < 21)
-            ;
+        personArray[i].setName((key.nextLine()));
+      }
+      for (int i = 0; i < personArray.length; i++) {
+        System.out.println(
+            "Age:" + personArray[i].getAge() + " ID:" + personArray[i].getId() + " Name:" + personArray[i].getName()
+                + " Last Name:" + personArray[i].getlastName());
+        if (personArray[i].getAge() < 21) {
           System.out.println("\nWhoa! You're younger than 21?! Out I say!\n");
           System.out.println("Can we talk a moment?");
-          String answer = key.nextLine();
-          if (answer.equals("yes")) {
-            System.out.println("Ok, just testing");
-          } else {
-            System.out.println("We have a problem");
-          }
+          answer = key.nextLine();
+        }
+        if (answer.equals("yes")) {
+          System.out.println("Ok, just testing");
+        } else {
+          System.out.println("We have a problem");
         }
       }
-
-      return person;
+    } catch (Exception e) {
+      System.out.println("There has been an error.");
     }
+
+    return personArray;
   }
 
   public static ArrayList<Person> createPersonsList() {
@@ -158,17 +171,33 @@ public class Person {
     }
   }
 
-  public static boolean determineIfUnderage(int value) {
-    if (value >= 18) {
-      System.out.println("Este individuo es mayor de edad");
-      return true;
+  public static boolean determineIfListUnderage(ArrayList<Person> list) {
+    int over = 0, under = 0, count = 0;
+    boolean isUnderage = false;
+    for (Person person : list) {
+      System.out.println(person.getName() + " is " + person.getAge());
+      if (person.getAge() >= 18) {
+        System.out.println("They are over 18.");
+        over++;
+        count++;
+      } else {
+        System.out.println("They are under 18.");
+        under++;
+        count++;
+      }
     }
-    System.out.println("Este individuo no es mayor de edad");
-    return false;
+    if (under > over) {
+      System.out.println("Out of " + count + " the mayority of your members are underage.");
+      isUnderage = true;
+    } else {
+
+      System.out.println("Out of " + count + " the mayority of your members ore over 18.");
+    }
+    return isUnderage;
   }
 
   public static void ageInsult(boolean age) {
-    if (age == true)
+    if (age == false)
       System.out.println("Fucking 'ell. Ya a geezer, mate.");
     else
       System.out.println("Pipsqueak. Beat it.");
