@@ -12,7 +12,7 @@ public class App {
     System.out
         .println("1: A class that contains an assortment of programs based on math exercises.");
     System.out.println("2: Generates a random array and finds the average, variance and deviation.");
-    System.out.println("3: Demonstrates the Fibonnaci sequence.");
+    System.out.println("3: Demonstrates the Fibonnaci sequence requesting the max number from the user.");
     System.out.println("4: See more options relating to object manipulation.");
   }
 
@@ -55,11 +55,14 @@ public class App {
                       System.out.println("This is a placeholder. More apps are to be added.");
                       Person.demoPersonArray();
                       break;
-
+                    case 3:
+                      System.out.println("This is a placeholder. More apps are to be added.");
+                      break;
+                    case 4:
+                      System.out.println("This is a place holder. More apps are to be added.");
                     default:
                       break;
                   }
-
                 default:
                   System.out.println("This is a placeholder. More apps are to be added.");
                   break;

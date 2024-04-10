@@ -5,6 +5,13 @@ import java.text.*;
 
 public class BuscandoOcho {
 
+  public static void main(String[] args) {
+    double value = leerNota();
+    declareTruth(value);
+    calcuPromedio();
+
+  }
+
   // Método que explica lo que estará ocurriendo al usuario
   static void explicativo() {
     System.out.println("¡Saludos! Estamos buscando a ocho, necesitamos encontrarlo cun un promedio.");
