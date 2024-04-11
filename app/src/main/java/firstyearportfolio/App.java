@@ -50,7 +50,7 @@ public class App {
                       Person.demoArrayCreation();
                       break;
                     case 2:
-                      System.out.println("This is a placeholder. More apps are to be added.");
+                      System.out.println(" is a placeholder. More apps are to be added.");
                       Person.demoPersonArray();
                       break;
                     case 3:

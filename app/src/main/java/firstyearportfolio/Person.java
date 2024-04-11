@@ -69,6 +69,9 @@ public class Person {
     } catch (Exception e) {
       // TODO: handle exception
     }
+    for (Person person : list) {
+      System.out.println(person.toString());
+    }
     return list;
   }
 
@@ -81,6 +84,7 @@ public class Person {
       System.out.println("you would like to create.");
       System.out.println("Type 1 for ArrayList.");
       System.out.println("Type 2 for a traditional array.");
+      System.out.println("Type 3 to get array from data.txt(CSV)");
       do {
         if (scanner.hasNextInt()) {
           userNumber = Integer.valueOf(scanner.nextLine());
@@ -91,6 +95,8 @@ public class Person {
               break;
             case 2:
               demoPersonArray();
+            case 3:
+              getListCsv();
             default:
               break;
           }
@@ -111,7 +117,7 @@ public class Person {
     list = createPersonsList();
     showPersonList(list);
     old = determineIfListUnderage(list);
-    ageInsult(old);
+    // ageInsult(old);
   }
 
   public static void demoPersonArray() {
