@@ -43,13 +43,11 @@ public class App {
               value = Integer.valueOf(key.nextLine());
               switch (value) {
                 case 1:
-                  System.out.println("Select 1 to build your array with a list.");
-                  System.out.println("Select 2 to build your array with as a regular array.");
+                  System.out.println("Select 1 to build your array of people.");
                   value = Integer.valueOf(key.nextLine());
                   switch (value) {
                     case 1:
-                      System.out.println("This is a placeholder. More apps are to be added.");
-                      Person.demoPersonList();
+                      Person.demoArrayCreation();
                       break;
                     case 2:
                       System.out.println("This is a placeholder. More apps are to be added.");

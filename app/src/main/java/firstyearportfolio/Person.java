@@ -1,5 +1,6 @@
 package firstyearportfolio;
 
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Person {
@@ -44,6 +45,63 @@ public class Person {
 
   public String toString() {
     return this.name + " " + this.lastName + " age: " + this.age + ", ID: " + this.id;
+  }
+
+  public static ArrayList<Person> getListCsv() {
+    String line = "", name = "", lastName = "";
+    int age = 0, id = 0;
+    String[] parts;
+    ArrayList<Person> list = new ArrayList<>();
+    try (Scanner reader = new Scanner(Paths.get("data.txt"))) {
+      while (reader.hasNextLine()) {
+        line = reader.nextLine();
+        parts = line.split(",");
+        name = parts[0];
+        lastName = parts[1];
+        age = Integer.valueOf(parts[2]);
+        id = Integer.valueOf(parts[3]);
+        Person person = new Person(name);
+        person.setlastName(lastName);
+        person.setAge(age);
+        person.setId(id);
+        list.add(person);
+      }
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return list;
+  }
+
+  public static void demoArrayCreation() {
+    boolean validInput = false;
+    try (Scanner scanner = new Scanner(System.in)) {
+      int userNumber = 0;
+      System.out.println("Welcome to the array creation demo.");
+      System.out.println("First you must select what type of array");
+      System.out.println("you would like to create.");
+      System.out.println("Type 1 for ArrayList.");
+      System.out.println("Type 2 for a traditional array.");
+      do {
+        if (scanner.hasNextInt()) {
+          userNumber = Integer.valueOf(scanner.nextLine());
+          validInput = true;
+          switch (userNumber) {
+            case 1:
+              demoPersonList();
+              break;
+            case 2:
+              demoPersonArray();
+            default:
+              break;
+          }
+        } else {
+          System.out.println("That is not a number please enter a number.");
+          scanner.nextLine();
+        }
+      } while (!validInput);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
   }
 
   public static void demoPersonList() {
