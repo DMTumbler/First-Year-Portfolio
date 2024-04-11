@@ -57,56 +57,57 @@ public class blockbusterClient {
 
   public static void demonstrate() {
 
-    Scanner key = new Scanner(System.in);
-    double costo;
-    costo = setRentCost(key);
-    explicativo(costo);
-    blockbusterClient client = identify(key, costo);
-    costo = askClient(client, costo, key);
-    showCost(costo);
+    Scanner scanner = new Scanner(System.in);
+    double cost;
+    cost = setRentCost(scanner);
+    explicativo(cost);
+    blockbusterClient client = identify(scanner, cost);
+    cost = askClient(client, cost);
+    showCost(cost);
   }
 
-  static double askClient(blockbusterClient client, double costo, Scanner key) {
-    Locale locale = Locale.US;
-    int dias = 0, tardanza;
-    boolean answer;
-    double recargo = 0;
-    System.out.println("\nDevolverá la película el dia hoy?\n");
-    answer = answerEntry(key);
+  static double askClient(blockbusterClient client, double cost) {
+    try (Scanner scanner = new Scanner(System.in)) {
+      Locale locale = Locale.US;
+      int dias = 0, tardanza;
+      boolean answer;
+      double recargo = 0;
+      System.out.println("\nDevolverá la película el dia hoy?\n");
+      answer = answerEntry();
 
-    while (dias < 2) {
-      if (answer == true) {
-        System.out.println("\nGracias, lindo dia!\n");
-        break;
-      } else if (answer == false) {
-        System.out.println("\nSe le cobrara " + NumberFormat.getCurrencyInstance(locale).format(recargo)
-            + " de recargo adicional, recuerde entregar a tiempo");
-        ++dias;
-        System.out.println("¿Devolverá la película el dia hoy?\n");
-        answer = answerEntry(key);
+      while (dias < 2) {
+        if (answer == true) {
+          System.out.println("\nGracias, lindo dia!\n");
+          break;
+        } else if (answer == false) {
+          System.out.println("\nSe le cobrara " + NumberFormat.getCurrencyInstance(locale).format(recargo)
+              + " de recargo adicional, recuerde entregar a tiempo");
+          ++dias;
+          System.out.println("¿Devolverá la película el dia hoy?\n");
+          answer = answerEntry();
+        }
       }
-    }
 
-    while (dias >= 2) {
-      System.out.println("Devolverá la película el dia hoy?");
-      if (answer == true) {
-        System.out.println("Gracias, lindo dia!");
-        break;
-      } else if (answer == false) {
-        tardanza = dias - 1;
-        System.out.println("\nSu entrega está " + tardanza + " dias tarde. Se le cobrara "
-            + NumberFormat.getCurrencyInstance(locale).format(recargo)
-            + " de recargo adicional por cada dia y película.");
-        ++dias;
-        recargo += costo / 2;
-        System.out.println("¿Devolverá la película el dia hoy?");
-        answer = answerEntry(key);
+      while (dias >= 2) {
+        System.out.println("Devolverá la película el dia hoy?");
+        if (answer == true) {
+          System.out.println("Gracias, lindo dia!");
+          break;
+        } else if (answer == false) {
+          tardanza = dias - 1;
+          System.out.println("\nSu entrega está " + tardanza + " dias tarde. Se le cobrara "
+              + NumberFormat.getCurrencyInstance(locale).format(recargo)
+              + " de recargo adicional por cada dia y película.");
+          ++dias;
+          recargo += cost / 2;
+          System.out.println("¿Devolverá la película el dia hoy?");
+          answer = answerEntry();
+        }
       }
+      System.out.println("Recargo: " + recargo);
+      System.out.println("Costo regular: " + cost);
+      return (client.getMovies() * recargo) + (client.getMovies() * cost);
     }
-    System.out.println("Recargo: " + recargo);
-    System.out.println("Costo regular: " + costo);
-    return (client.getMovies() * recargo) + (client.getMovies() * costo);
-
   }
 
   static void explicativo(double rentCost) {
@@ -119,13 +120,13 @@ public class blockbusterClient {
         + NumberFormat.getCurrencyInstance(locale).format(rentCost));
   }
 
-  static boolean answerEntry(Scanner key) {
+  static boolean answerEntry() {
     boolean decision = false;
 
-    try {
+    try (Scanner scanner = new Scanner(System.in)) {
       System.out.println("Entre su respuesta.");
       while (true) {
-        String answer = key.nextLine();
+        String answer = scanner.nextLine();
         if (answer.equals("Si") || answer.equals("Sí") || answer.equals("si") || answer.equals("sí")
             || answer.equals("s") || answer.equals("S")) {
           decision = true;

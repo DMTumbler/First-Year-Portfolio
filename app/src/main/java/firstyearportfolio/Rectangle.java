@@ -50,23 +50,26 @@ public class Rectangle {
   }
 
   public static void calculateRectangle(Rectangle shape) {
-    Scanner key = new Scanner(System.in);
-    System.out.println("Favor entrar el alto del rectángulo: ");
-    shape.setHeight(key.nextDouble());
-    System.out.println();
+    try (Scanner key = new Scanner(System.in)) {
+      System.out.println("Favor entrar el alto del rectángulo: ");
+      shape.setHeight(key.nextDouble());
+      System.out.println();
 
-    System.out.println("Favor entrar el ancho del rectángulo: ");
-    shape.setWidth(key.nextDouble());
-    System.out.println();
+      System.out.println("Favor entrar el ancho del rectángulo: ");
+      shape.setWidth(key.nextDouble());
+      System.out.println();
 
-    shape.setArea(shape.getWidth() * shape.getHeight());
-    shape.setPerimeter(2 * (shape.getWidth() + shape.getHeight()));
+      shape.setArea(shape.getWidth() * shape.getHeight());
+      shape.setPerimeter(2 * (shape.getWidth() + shape.getHeight()));
 
-    System.out.println("Medidas de su rectángulo basado en un alto de " + shape.getHeight() + " y un ancho de "
-        + shape.getWidth() + ": ");
-    System.out.println("Area de rectángulo: " + shape.getArea());
-    System.out.println("Perímetro de rectángulo: " + shape.getPerimeter());
-    System.out.println();
+      System.out.println("Medidas de su rectángulo basado en un alto de " + shape.getHeight() + " y un ancho de "
+          + shape.getWidth() + ": ");
+      System.out.println("Area de rectángulo: " + shape.getArea());
+      System.out.println("Perímetro de rectángulo: " + shape.getPerimeter());
+      System.out.println();
+    } catch (Exception e) {
+      // TODO: Handele exception
+    }
 
   }
 
