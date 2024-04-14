@@ -112,11 +112,11 @@ public class Person {
 
   public static void demoPersonList() {
     ArrayList<Person> list = new ArrayList<>();
-    boolean old = false;
+    // boolean old = false;
     System.out.println("First we will create an array of people");
     list = createPersonsList();
     showPersonList(list);
-    old = determineIfListUnderage(list);
+    // old = determineIfListUnderage(list);
     // ageInsult(old);
   }
 

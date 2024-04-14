@@ -1,11 +1,52 @@
 package firstyearportfolio;
 
-public class empleados {
+import java.util.Scanner;
+
+public class Empleados {
+  private String name, surname;
+  private int edad;
+
+  public Empleados(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getSurname() {
+    return surname;
+  }
+
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
+
+  public int getEdad() {
+    return edad;
+  }
+
+  public void setEdad(int age) {
+    this.edad = age;
+  }
+
   public static void demonstrate() {
-    String name, lastname, age;
-    int[][][] employees = new int[5][5][5];
-    empleado emp1 = new empleado();
-    employeeNames(employees);
+    try (Scanner scanner = new Scanner(System.in)) {
+      String name = "", surname = "";
+      int age = 0;
+      int[][][] employees = new int[5][5][5];
+      name = scanner.nextLine();
+      surname = scanner.nextLine();
+      age = Integer.valueOf(scanner.nextLine());
+      Empleados emp1 = new Empleados(name);
+      System.out.println("How old are you?");
+      emp1.setEdad(age);
+      System.out.println("What is your last name?");
+      emp1.setSurname(surname);
+      employeeNames(employees);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
   }
 
   public static int employeeNames(int[][][] array) {
@@ -20,36 +61,4 @@ public class empleados {
 
   }
 
-  public static void employeeNames(String[][][] array) {
-
-  }
-
-  static class empleado {
-    private String nombre, apellido;
-    private int edad;
-
-    public String getNombre() {
-      return nombre;
-    }
-
-    public void setNombre(String nombre) {
-      this.nombre = nombre;
-    }
-
-    public String getApellido() {
-      return apellido;
-    }
-
-    public void setTipo(String apellido) {
-      this.apellido = apellido;
-    }
-
-    public int getEdad() {
-      return edad;
-    }
-
-    public void setEdad(int edad) {
-      this.edad = edad;
-    }
-  }
 }

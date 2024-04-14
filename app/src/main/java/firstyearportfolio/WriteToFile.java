@@ -7,26 +7,26 @@ import java.util.Random;
 public class WriteToFile {
   public static void demonstrate() {
     Scanner key = new Scanner(System.in);
-    Estudiante[] stu;
+    Student[] stu;
     stu = generateStudents(key);
     toFile(key, stu);
     readStudent(key, stu);
   }
 
-  public static Estudiante[] generateStudents(Scanner key) {
+  public static Student[] generateStudents(Scanner key) {
     int i = 0;
-    Estudiante[] stu;
-    stu = new Estudiante[1000];
+    Student[] stu;
+    stu = new Student[1000];
     for (i = 0; i < 1000; i++) {
-      stu[i] = new Estudiante();
+      stu[i] = new Student();
     }
     return stu;
   }
 
-  public static void toFile(Scanner key, Estudiante[] stu) {
-    PrintWriter resultado;
+  public static void toFile(Scanner key, Student[] stu) {
+    PrintWriter result;
     try {
-      resultado = new PrintWriter("C:/Users/chris/OneDrive/Desktop/results.txt");
+      result = new PrintWriter("C:/Users/chris/OneDrive/Desktop/results.txt");
     } catch (FileNotFoundException e) {
       System.out.println("El archivo para escribir resultados no existe");
       return;
@@ -35,12 +35,13 @@ public class WriteToFile {
     for (i = 0; i < 1000; i++) {
       Random rd = new Random();
       System.out.println("Numero aleatorio generado " + i);
-      resultado.println(stu[i].setPromedio(rd.nextInt()));
+      stu[i].setAverage(rd.nextInt());
+      System.out.println(stu[i].getAverage());
+      result.close();
     }
-    resultado.close();
   }
 
-  public static void readStudent(Scanner key, Estudiante[] stu) {
+  public static void readStudent(Scanner key, Student[] stu) {
     Scanner data;
     try {
       data = new Scanner(new File("C:/Users/chris/OneDrive/Desktop/results.txt"));
@@ -51,24 +52,23 @@ public class WriteToFile {
 
     int promedio = 0;
     for (int i = 0; i < 1000; i++) {
-      System.out.println("Promedio: " + stu[i].getPromedio());
+      System.out.println("Promedio: " + stu[i].getAverage());
       System.out.println(" ");
-      promedio += stu[i].getPromedio();
+      promedio += stu[i].getAverage();
     }
-    System.out.println("El promedio de todos los números de los estudiantes es: " + (promedio / stu.length));
+    System.out.println("El promedio de todos los nÃƒÂºmeros de los estudiantes es: " + (promedio / stu.length));
     data.close();
   }
 
-  static class Estudiante {
-    private int promedio;
+  static class Student {
+    private int average;
 
-    public int setPromedio(int prom) {
-      promedio = prom;
-      return promedio;
+    public void setAverage(int avg) {
+      this.average = avg;
     }
 
-    public int getPromedio() {
-      return promedio;
+    public int getAverage() {
+      return average;
     }
   }
 }
