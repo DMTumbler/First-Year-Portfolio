@@ -1,1 +1,7 @@
 Joy,Hollow,32,3
+Nadya,Esquilin,30,2
+Christian,Sanchez,31,1
+Sol,Martinez,29,4
+Gabriel,Febles,29,5
+Dane,Vargas,27,6
+Vladimir,Conde,27,7
