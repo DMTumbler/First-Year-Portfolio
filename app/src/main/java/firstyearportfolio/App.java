@@ -19,10 +19,10 @@ public class App {
   public int selectExcercise() {
     int value = 0;
     boolean validInput = false;
-    try (Scanner key = new Scanner(System.in)) {
+    try (Scanner scanner = new Scanner(System.in)) {
       do {
-        if (key.hasNextInt()) {
-          value = Integer.valueOf(key.nextLine());
+        if (scanner.hasNextInt()) {
+          value = Integer.valueOf(scanner.nextLine());
           validInput = true;
           switch (value) {
             case 1:
@@ -40,11 +40,11 @@ public class App {
               System.out.println("2: To be added.");
               System.out.println("3: To be added.");
               System.out.println("4: More.");
-              value = Integer.valueOf(key.nextLine());
+              value = Integer.valueOf(scanner.nextLine());
               switch (value) {
                 case 1:
                   System.out.println("Select 1 to build your array of people.");
-                  value = Integer.valueOf(key.nextLine());
+                  value = Integer.valueOf(scanner.nextLine());
                   switch (value) {
                     case 1:
                       Person.demoArrayCreation();
@@ -68,7 +68,7 @@ public class App {
           }
         } else {
           System.out.println("That is not a number. Please enter a number.");
-          key.nextLine();
+          scanner.nextLine();
         }
 
       } while (!validInput);

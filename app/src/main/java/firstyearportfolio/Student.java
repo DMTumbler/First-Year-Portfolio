@@ -1,182 +1,157 @@
 package firstyearportfolio;
 
-import java.text.DecimalFormat;
+/* Programador: Christian Sánchez Martínez
+* Inf 125 Sec.1
+* Tarea: Lab 9 Archivos
+* Fecha de Entrega: 10/9/2023
+* Programa: Permite al usuario guardar los datos de tres estudiantes 
+*
+* Algoritmo: 
+* 1. Comenzar
+* 2. Pedir datos de usuario para llenar datos de estudiantes
+*  - Nombre (String nombre)
+*  - Numero de Estudiante (String numest)
+*  - Año de Estudio (int anest)
+*  - Cantidad de Creditos Aprobados (int creds)
+*  - Dirección (String direccion)
+*  - Teléfono (String teléfono)
+*  - Promedio (int promedio)
+* 3. Utilizar datos para llenar archivo con cinco estudiantes
+* 4. Leer el archivo y mostrar los datos en pantalla
+* 5. Terminar
+*
+* Métodos:
+* toFile() - Escribe los datos de los estudiantes al archivo results.txt
+* readStudents() - Lee los datos del archivo results.txt y los lee en pantalla
+*/
 import java.util.*;
+import java.io.*;
 
 public class Student {
-  private String name, lastName, studentNumber, phoneNumber, email;
-  double[] grades;
-  private double age;
+  private String name, studnum, address, phone;
+  private int creds, avg;
 
-  // Setter methods
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-  public void setStudentNumber(String studentNumber) {
-    this.studentNumber = studentNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setGrades(double[] grades) {
-    this.grades = grades;
-  }
-
-  public void setAge(double age) {
-    this.age = age;
+  public Student(String nom) {
+    this.name = nom;
   }
 
   public String getName() {
     return name;
   }
 
-  public String getLastName() {
-    return lastName;
+  public String getNumeroEstudiante() {
+    return studnum;
   }
 
-  public String getStudentNumber() {
-    return studentNumber;
+  public String setNumeroEstudiante(String num) {
+    return this.studnum = num;
   }
 
-  public String getPhoneNumber() {
-    return phoneNumber;
+  public String getAddress() {
+    return address;
   }
 
-  public String getEmail() {
-    return email;
+  public String setAddress(String dir) {
+    return this.address = dir;
   }
 
-  public double[] getGrades() {
-    return grades;
+  public String getPhone() {
+    return phone;
   }
 
-  public double getAge() {
-    return age;
+  public String setPhone(String tel) {
+    return this.phone = tel;
+  }
+
+  public int setCreds(int creds) {
+    return this.creds = creds;
+  }
+
+  public int getCreds() {
+    return creds;
+  }
+
+  public int setAvg(int prom) {
+    this.avg = prom;
+    return avg;
+  }
+
+  public int getAvg() {
+    return avg;
   }
 
   public static void demonstrate() {
-    Scanner key = new Scanner(System.in);
-    Student stud1 = new Student();
-    stud1.addStudent(key);
-    printStudentInfo(stud1);
-
+    Scanner scanner = new Scanner(System.in);
+    Student stu = new Student("Fabian");
+    int studentAmount = 5;
+    // studentAmount = amountOfStudents(key);
+    toFile(scanner, stu, studentAmount);
+    readStudent(scanner, stu, studentAmount);
   }
 
-  public static double[] fillGradesArray(Scanner key) {
-    System.out.println("How many grades will you be averaging? Please enter the amount.");
-    int size = 0;
+  /*
+   * public static int amountOfStudents(Scanner key){
+   * int cantidad;
+   * System.out.
+   * println("Favor de proveer la cantidad de estudiantes a entrar en sistema");
+   * cantidad = key.nextInt();
+   * key.nextLine();
+   * return cantidad;
+   */
+
+  public static void toFile(Scanner key, Student stu, int amount) {
+    PrintWriter resultado;
+    int i = 0;
     try {
-      while (true)
-        if (key.hasNextInt()) {
-          size = key.nextInt();
-          break;
-        } else {
-          System.out.println("That is not a number. Please enter a number.");
-          key.nextLine();
-        }
-    } catch (Exception e) {
-      System.out.println("There was an error. Restart the program.");
+      resultado = new PrintWriter("C:/Users/chris/OneDrive/Desktop/results.txt");
+    } catch (FileNotFoundException e) {
+      System.out.println("El archivo para escribir resultados no existe");
+      return;
     }
-    double[] grades = new double[size];
+    resultado.close();
 
-    System.out.println("We will be requesting " + size + " grades.");
-    for (int i = 0; i < grades.length; i++) {
-      System.out.println("Please enter a grade: ");
-      try {
-        while (true)
-          if (key.hasNextDouble()) {
-            grades[i] = key.nextDouble();
-            break;
-          } else {
-            System.out.println("That is not a number. Please enter a number.");
-            key.nextLine();
-            key.nextLine();
-          }
-      } catch (Exception e) {
-        System.out.println("There was an error. Restart the program.");
-      }
+    for (i = 1; i - 1 < amount; i++) {
+      System.out.println("Favor de entra el nombre del estudiante #" + i);
+      resultado.println(stu.getName());
+      System.out.println("Favor de entra el Numero de Estudiante del estudiante #" + i);
+      stu.setNumeroEstudiante(key.nextLine());
+      resultado.println(stu.getNumeroEstudiante());
+      System.out.println("Favor de entra la direcciÃ³n del estudiante #" + i);
+      stu.setAddress(key.nextLine());
+      resultado.println(stu.getAddress());
+      System.out.println("Favor de entra el telefono del estudiante #" + i);
+      stu.setPhone(key.nextLine());
+      resultado.println(stu.getPhone());
+      System.out.println("Favor de entra los creditos aprobados del estudiante #" + i);
+      stu.setCreds(key.nextInt());
+      resultado.println(stu.getCreds());
+      key.nextLine();
+      System.out.println("Favor de entra el promedio del estudiante #" + i);
+      stu.setAvg(key.nextInt());
+      resultado.println(stu.getAvg());
+      key.nextLine();
     }
-    return grades;
+    resultado.close();
   }
 
-  public static double averageGrades(double[] grades) {
-    double average = 0;
-    double sum = 0;
-    for (int i = 0; i < grades.length; i++) {
-      sum += grades[i];
+  public static void readStudent(Scanner key, Student stu, int amount) {
+    Scanner data;
+    try {
+      data = new Scanner(new File("C:/Users/chris/OneDrive/Desktop/results.txt"));
+    } catch (FileNotFoundException e) {
+      System.out.println("El archivo para leer resultados no existe.");
+      return;
     }
-    average = sum / grades.length;
-    return average;
-  }
 
-  public static void printGrades(double[] grades, double average) {
-    DecimalFormat ft = new DecimalFormat("00.00");
-    System.out.println("\nYour student's grades are as follow: ");
-    for (int i = 0; i < grades.length; i++) {
-      System.out.print(ft.format(grades[i]) + "%   ");
+    for (int i = 1; i - 1 < amount; i++) {
+      System.out.println("Nombre: " + stu.getName());
+      System.out.println("Numero de Estudiante: " + stu.getNumeroEstudiante());
+      System.out.println("Direccion: " + stu.getAddress());
+      System.out.println("Telefono: " + stu.getPhone());
+      System.out.println("Creditos: " + stu.getCreds());
+      System.out.println("Promedio: " + stu.getAvg());
+      System.out.println(" ");
     }
-    System.out.println("\n\nYour student's average is: " + ft.format(average) + "%");
-  }
-
-  public static void printStudentInfo(Student stud) {
-    System.out.println("\nHere are the details of your student: \n");
-    System.out.println("Age: " + stud.getAge());
-    System.out.println("Email: " + stud.getEmail());
-    System.out.println("Last Name: " + stud.getLastName());
-    System.out.println("First Name: " + stud.getName());
-    System.out.println("Phone Number: " + stud.getPhoneNumber());
-    System.out.println("Student Number: " + stud.getStudentNumber());
-    printGrades(stud.getGrades(), averageGrades(stud.getGrades()));
-    obtainLetter(averageGrades(stud.getGrades()));
-  }
-
-  public Student addStudent(Scanner key) {
-    Student stud = new Student();
-    System.out.print("Enter student's age: ");
-    stud.setAge(key.nextDouble());
-    key.nextLine();
-
-    System.out.print("Enter student's email: ");
-    stud.setEmail(key.nextLine());
-
-    System.out.print("Enter student's last name: ");
-    stud.setLastName(key.nextLine());
-
-    System.out.print("Enter student's first name: ");
-    stud.setName(key.nextLine());
-
-    System.out.print("Enter student's phone number: ");
-    stud.setPhoneNumber(key.nextLine());
-
-    System.out.print("Enter student's student number: ");
-    stud.setStudentNumber(key.nextLine());
-
-    stud.setGrades(fillGradesArray(key));
-    return stud;
-  }
-
-  public static void obtainLetter(double av) {
-    if (av >= 90) {
-      System.out.println("El estudiante tiene A en el curso");
-    } else if (av >= 80) {
-      System.out.println("El estudiante tiene B en el curso");
-    } else if (av >= 70) {
-      System.out.println("El estudiante tiene C en el curso");
-    } else if (av >= 60) {
-      System.out.println("El estudiante tiene D en el curso");
-    } else {
-      System.out.println("El estudiante está mega colgau");
-    }
+    data.close();
   }
 }
