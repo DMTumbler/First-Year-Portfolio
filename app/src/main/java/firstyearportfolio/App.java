@@ -40,6 +40,7 @@ public class App {
               System.out.println("2: To be added.");
               System.out.println("3: To be added.");
               System.out.println("4: More.");
+              System.out.println();
               value = Integer.valueOf(scanner.nextLine());
               switch (value) {
                 case 1:
