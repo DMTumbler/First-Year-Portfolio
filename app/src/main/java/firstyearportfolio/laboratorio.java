@@ -17,14 +17,14 @@ package firstyearportfolio;
 //    La cantidad a pagar debe ser mayor que el total de la compra.
 //
 //    Diccionario de variables:
-//    articulo1, articulo2, articulo3: Variables a las cuales el usuario le asigna un valora traves
+//    articulo1, articulo2, articulo3: Variables a las cuales el usuario le asigna un valora a través
 //    de la función leer. Estos son los precios de los artículos comprados.
 //    subtotal: 
 //    ivu: Variable a la cual se le asigna el valor del impuesto sobre ventas y usos el cual es hallado
 //    por la función hallarIvu la cual requiere proveer el valor del subtotal hallado en hallarSubTotal
 //    total: Variable que representa la suma del subtotal y el ivu. Ambas son respectivamente halladas en
 //    hallarSubTotal y hallarIvu.
-//    pago: Representa los valores provistos por las funciones anteriores par proveerlos al usuario. Tales como:
+//    pago: Representa los valores provistos por las funciones anteriores para proveerlos al usuario. Tales como:
 //    subtotal, ivu, total restando la cantidad provista por el usuario.
 //    cambio: Valor al cual se le asigna la diferencia de la transacción. Este valor se lo asigna la función
 //    hallar cambio la cual depende de leerPago y hallarTotal para tener los valores que se van a restar.
@@ -49,7 +49,7 @@ public class laboratorio {
     mostrarCambio(cambio);
   }
 
-  // Función que devuelve el valor de un numero según entrado por el usuario. En
+  // Función que devuelve el valor de un número según entrado por el usuario. En
   // main esta función es
   // usado tres veces para asignarle el valor a articulo1, articulo2 y articulo3
   static double leer() {
@@ -74,7 +74,7 @@ public class laboratorio {
   // Función que, según todos los valores ya determinados por los cálculos
   // funciones anteriores,
   // demuestra dichos valores para el usuario de manera comprensible.
-  // Adicionalmente le pide el
+  // Adicionalmente, le pide el
   // total con el cual el usuario desea pagar
   static double leerPago(double subT, double imp, double compra) {
     Scanner lectura = new Scanner(System.in);
@@ -97,9 +97,9 @@ public class laboratorio {
     System.out.println("Debe presionar enter luego de entrar cada articulo individualmente");
     System.out.println("Finalmente solicitará el monto de su pago y, según la cantidad");
     System.out.println("que usted entre le dirá el total d su cambio.");
-    System.out.println("");
+    System.out.println();
     // Coloca aquí las instrucciones que entiendas necesarias para
-    // explicar al usuario lo que hace el programa y que entre el
+    // explicar al usuario lo que hace el programa y que
     // entre el precio de los tres artículos que compró. También
     // debes indicar al usuario que debe oprimir la tecla Enter después
     // de entrar el precio de cada artículo.
@@ -109,7 +109,7 @@ public class laboratorio {
   // la
   // compra. Esta función depende de que las funciones hallarIvu y hallarSubtotal
   // se
-  // hallan ejecutado y asignado valores a las variables antes mencionadas.
+  // hayan ejecutado y asignado valores a las variables antes mencionadas.
   static double hallarTotal(double costo, double tax) {
     double suma;
     suma = costo + tax;
@@ -138,7 +138,7 @@ public class laboratorio {
     return impuesto;
   }
 
-  // Función que, luego de que el usuario somete la cantidad del pago a traves de
+  // Función que, luego de que el usuario somete la cantidad del pago a través de
   // la
   // función leer pago, calcula la diferencia que se le debe al usuario.
   static double hallarCambio(double total, double payment) {
