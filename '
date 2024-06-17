@@ -2,8 +2,33 @@ package firstyearportfolio;
 
 import java.util.*;
 
-public class ozToCups {
-  public static double provideOz() {
+public class ozCupsConverter {
+  private double oz, cups;
+
+  public ozCupsConverter(int mesurement) {
+    this.oz = mesurement;
+    this.cups = mesurement;
+    convertOzToCups();
+    convertCupsToOz();
+  }
+
+  public void convertOzToCups() {
+    this.cups = this.oz / 8;
+  }
+
+  public void convertCupsToOz() {
+    this.oz = this.cups * 8;
+  }
+
+  public double getOz() {
+    return this.oz;
+  }
+
+  public double getCups() {
+    return this.cups;
+  }
+
+  public static double determinePartySize() {
     double cups, gallons, mesure;
     try (Scanner key = new Scanner(System.in)) {
       System.out.println("How many ounces would you like to convert to cups?");
@@ -30,11 +55,9 @@ public class ozToCups {
   }
 
   public static void demonstrate() {
-    double mesure = 0;
-    if (mesure <= 128) {
-      mesure = provideOz();
-      partyCalc(mesure);
-    }
+    double mesure;
+    mesure = provideOz();
+    partyCalc(mesure);
 
   }
 }
