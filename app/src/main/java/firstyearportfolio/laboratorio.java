@@ -53,10 +53,13 @@ public class laboratorio {
   // main esta función es
   // usado tres veces para asignarle el valor a articulo1, articulo2 y articulo3
   static double leer() {
-    Scanner lectura = new Scanner(System.in);
-    double numero;
-    System.out.print("Entre el precio: ");
-    numero = lectura.nextDouble();
+    double numero = 0;
+    try (Scanner scanner = new Scanner(System.in)) {
+      System.out.print("Enter the price: ");
+      numero = scanner.nextDouble();
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
     return numero;
   }
 
@@ -77,14 +80,17 @@ public class laboratorio {
   // Adicionalmente, le pide el
   // total con el cual el usuario desea pagar
   static double leerPago(double subT, double imp, double compra) {
-    Scanner lectura = new Scanner(System.in);
-    DecimalFormat ft = new DecimalFormat("$00.00");
-    double cantidad;
-    System.out.println("El subtotal de su compra de tres artículos es: " + ft.format(subT));
-    System.out.println("El IVU de su compra es: " + ft.format(imp));
-    System.out.println("El total de su compra es: " + ft.format(compra));
-    System.out.print("Favor de entrar la cantidad de su pago: ");
-    cantidad = lectura.nextDouble();
+    double cantidad = 0;
+    try (Scanner scanner = new Scanner(System.in)) {
+      DecimalFormat ft = new DecimalFormat("$00.00");
+      System.out.println("El subtotal de su compra de tres artículos es: " + ft.format(subT));
+      System.out.println("El IVU de su compra es: " + ft.format(imp));
+      System.out.println("El total de su compra es: " + ft.format(compra));
+      System.out.print("Favor de entrar la cantidad de su pago: ");
+      cantidad = scanner.nextDouble();
+    } catch (Exception e) {
+
+    }
     return cantidad;
   }
 

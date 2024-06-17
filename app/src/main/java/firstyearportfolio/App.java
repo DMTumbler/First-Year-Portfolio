@@ -40,6 +40,7 @@ public class App {
               System.out.println("2: To be added.");
               System.out.println("3: To be added.");
               System.out.println("4: More.");
+              System.out.println();
               value = Integer.valueOf(scanner.nextLine());
               switch (value) {
                 case 1:
@@ -50,19 +51,19 @@ public class App {
                       Person.demoArrayCreation();
                       break;
                     case 2:
-                      System.out.println(" is a placeholder. More apps are to be added.");
+                      System.out.println("This is a placeholder. More programs are to be added.");
                       Person.demoPersonArray();
                       break;
                     case 3:
-                      System.out.println("This is a placeholder. More apps are to be added.");
+                      System.out.println("This is a placeholder. More programs are to be added.");
                       break;
                     case 4:
-                      System.out.println("This is a place holder. More apps are to be added.");
+                      System.out.println("This is a placeholder. More programs are to be added.");
                     default:
                       break;
                   }
                 default:
-                  System.out.println("This is a placeholder. More apps are to be added.");
+                  System.out.println("This is a placeholder. More programs are to be added.");
                   break;
               }
           }

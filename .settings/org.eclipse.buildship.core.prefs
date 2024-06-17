@@ -1,11 +1,14 @@
-arguments=--init-script C\:\\Users\\chris\\AppData\\Local\\lvim-data\\mason\\packages\\jdtls\\configuration\\org.eclipse.osgi\\56\\0\\.cp\\gradle\\init\\init.gradle
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=b40f17eeb3b8a52d45e162c8b83fd75623a9cac9
+arguments=--init-script /home/ithas/.cache/lvim/jdtls/First-Year-Portfolio/config/org.eclipse.osgi/55/0/.cp/gradle/init/init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=C\:/Program Files/Eclipse Adoptium/jdk-21.0.2.13-hotspot
+java.home=/usr/lib/jvm/java-18-openjdk-amd64
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true
