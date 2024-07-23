@@ -1,7 +1,7 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=b40f17eeb3b8a52d45e162c8b83fd75623a9cac9
-arguments=--init-script C\:\\Users\\chris\\AppData\\Local\\lvim-data\\mason\\packages\\jdtls\\configuration\\org.eclipse.osgi\\56\\0\\.cp\\gradle\\init\\init.gradle
+arguments=--init-script C\:\\Users\\chris\\AppData\\Local\\Temp\\lvim\\jdtls\\app\\config\\org.eclipse.osgi\\56\\0\\.cp\\gradle\\init\\init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
